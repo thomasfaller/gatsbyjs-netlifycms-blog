@@ -1,11 +1,36 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `TomTheDev`,
+    tagline: `Join me in my coding journey.`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `Thomas Faller`,
+    authorImage: `https://res.cloudinary.com/djr6sgsbd/image/upload/v1568973593/selfie.png`,
+    authorBio: `Full Stack Dev 💻 | Dad 💪🏻 | Linux enthusiast 🐧 | tinker 🤖 | maker ⚙️ | 3d print padawan. I like clean interfaces and meaningful experiences.`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-less`,
+      options: {
+        modifyVars: require(`./src/theme/antd.js`),
+        javascriptEnabled: true,
+      },
+    },
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-antd`,
+      options: {
+        style: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/blog/`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
